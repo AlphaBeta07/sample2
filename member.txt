@@ -1,0 +1,208 @@
+<!-- Team Member 4 - Events Coordinator -->
+                <div class="team-member cyber-panel" data-category="events">
+                    <div class="member-image">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="avatarGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#003319" />
+                                        <stop offset="100%" stop-color="#004d26" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="200" height="200" fill="url(#avatarGradient4)" />
+                                <circle cx="100" cy="70" r="40" fill="none" stroke="#00ff80" stroke-width="2" />
+                                <path d="M60,140 C60,100 140,100 140,140" fill="none" stroke="#00ff80" stroke-width="2" />
+                                <circle cx="85" cy="65" r="5" fill="#00ff80" />
+                                <circle cx="115" cy="65" r="5" fill="#00ff80" />
+                                <path d="M80,85 C90,95 110,95 120,85" fill="none" stroke="#00ff80" stroke-width="2" />
+                                <path d="M60,140 L60,160 L140,160 L140,140" stroke="#00ff80" stroke-width="1" fill="none" />
+                                <path d="M70,160 L70,180" stroke="#00ff80" stroke-width="1" fill="none" />
+                                <path d="M130,160 L130,180" stroke="#00ff80" stroke-width="1" fill="none" />
+                                <path d="M80,40 C80,30 120,30 120,40" stroke="#00ff80" stroke-width="1" fill="none" />
+                            </svg>
+                        </div>
+                        <div class="member-social flex flex-col space-y-3">
+                            <a href="#" class="social-icon" style="border: 1px solid #00ff80; box-shadow: 0 0 10px #00ff80;">
+                                <i class="fab fa-linkedin-in" style="color: #00ff80;"></i>
+                            </a>
+                            <a href="#" class="social-icon" style="border: 1px solid #00ff80; box-shadow: 0 0 10px #00ff80;">
+                                <i class="fab fa-github" style="color: #00ff80;"></i>
+                            </a>
+                            <a href="#" class="social-icon" style="border: 1px solid #00ff80; box-shadow: 0 0 10px #00ff80;">
+                                <i class="fas fa-envelope" style="color: #00ff80;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6 relative">
+                        <div class="hexagon-bg">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="none" stroke="#00ff80" stroke-width="1" />
+                                <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="#00ff80" stroke-width="1" />
+                                <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="none" stroke="#00ff80" stroke-width="1" />
+                            </svg>
+                        </div>
+                        <span class="member-role role-events mb-2">Events Coordinator</span>
+                        <h3 class="text-lg md:text-xl font-bold mt-3 mb-1" style="color: #00ff80; text-shadow: 0 0 5px #00ff80, 0 0 10px #00ff80;">Aisha Patel</h3>
+                        <p class="text-gray-300 mb-4 text-sm md:text-base">Junior in Business Administration with a minor in Computer Science, specializing in event management and community building.</p>
+                        <div class="flex flex-wrap">
+                            <span class="member-specialty">Event Planning</span>
+                            <span class="member-specialty">Marketing</span>
+                            <span class="member-specialty">Community</span>
+                        </div>
+                        <div class="member-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #00ff80; text-shadow: 0 0 5px #00ff80;">24</span>
+                                <span class="stat-label">Events</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #00ff80; text-shadow: 0 0 5px #00ff80;">15</span>
+                                <span class="stat-label">Partners</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #00ff80; text-shadow: 0 0 5px #00ff80;">2</span>
+                                <span class="stat-label">Years</span>
+                            </div>
+                        </div>
+                        <div class="member-hover-effect" style="background: linear-gradient(90deg, #00ff80, #00cc66, #00ff80);"></div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 - PR Manager -->
+                <div class="team-member cyber-panel" data-category="executive">
+                    <div class="member-image">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="avatarGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#331a00" />
+                                        <stop offset="100%" stop-color="#663300" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="200" height="200" fill="url(#avatarGradient5)" />
+                                <circle cx="100" cy="70" r="40" fill="none" stroke="#ff8000" stroke-width="2" />
+                                <path d="M60,140 C60,100 140,100 140,140" fill="none" stroke="#ff8000" stroke-width="2" />
+                                <circle cx="85" cy="65" r="5" fill="#ff8000" />
+                                <circle cx="115" cy="65" r="5" fill="#ff8000" />
+                                <path d="M85,85 C85,90 115,90 115,85" fill="none" stroke="#ff8000" stroke-width="2" />
+                                <path d="M60,140 L60,160 L140,160 L140,140" stroke="#ff8000" stroke-width="1" fill="none" />
+                                <path d="M70,160 L70,180" stroke="#ff8000" stroke-width="1" fill="none" />
+                                <path d="M130,160 L130,180" stroke="#ff8000" stroke-width="1" fill="none" />
+                                <path d="M80,50 C80,40 120,40 120,50" stroke="#ff8000" stroke-width="1" fill="none" />
+                            </svg>
+                        </div>
+                        <div class="member-social flex flex-col space-y-3">
+                            <a href="#" class="social-icon" style="border: 1px solid #ff8000; box-shadow: 0 0 10px #ff8000;">
+                                <i class="fab fa-linkedin-in" style="color: #ff8000;"></i>
+                            </a>
+                            <a href="#" class="social-icon" style="border: 1px solid #ff8000; box-shadow: 0 0 10px #ff8000;">
+                                <i class="fab fa-github" style="color: #ff8000;"></i>
+                            </a>
+                            <a href="#" class="social-icon" style="border: 1px solid #ff8000; box-shadow: 0 0 10px #ff8000;">
+                                <i class="fas fa-envelope" style="color: #ff8000;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6 relative">
+                        <div class="hexagon-bg">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="none" stroke="#ff8000" stroke-width="1" />
+                                <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="#ff8000" stroke-width="1" />
+                                <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="none" stroke="#ff8000" stroke-width="1" />
+                            </svg>
+                        </div>
+                        <span class="member-role role-pr mb-2">PR Manager</span>
+                        <h3 class="text-lg md:text-xl font-bold mt-3 mb-1" style="color: #ff8000; text-shadow: 0 0 5px #ff8000, 0 0 10px #ff8000;">David Kim</h3>
+                        <p class="text-gray-300 mb-4 text-sm md:text-base">Senior in Communications with a focus on digital media and technology PR. Expert in building brand presence and community engagement.</p>
+                        <div class="flex flex-wrap">
+                            <span class="member-specialty">Digital Media</span>
+                            <span class="member-specialty">Content Creation</span>
+                            <span class="member-specialty">Branding</span>
+                        </div>
+                        <div class="member-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #ff8000; text-shadow: 0 0 5px #ff8000;">18</span>
+                                <span class="stat-label">Campaigns</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #ff8000; text-shadow: 0 0 5px #ff8000;">5K+</span>
+                                <span class="stat-label">Followers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #ff8000; text-shadow: 0 0 5px #ff8000;">3</span>
+                                <span class="stat-label">Years</span>
+                            </div>
+                        </div>
+                        <div class="member-hover-effect" style="background: linear-gradient(90deg, #ff8000, #ff9933, #ff8000);"></div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 6 - Research Lead -->
+                <div class="team-member cyber-panel" data-category="research">
+                    <div class="member-image">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="avatarGradient6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#333300" />
+                                        <stop offset="100%" stop-color="#666600" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="200" height="200" fill="url(#avatarGradient6)" />
+                                <circle cx="100" cy="70" r="40" fill="none" stroke="#ffff00" stroke-width="2" />
+                                <path d="M60,140 C60,100 140,100 140,140" fill="none" stroke="#ffff00" stroke-width="2" />
+                                <circle cx="85" cy="65" r="5" fill="#ffff00" />
+                                <circle cx="115" cy="65" r="5" fill="#ffff00" />
+                                <path d="M85,85 C85,95 115,95 115,85" fill="none" stroke="#ffff00" stroke-width="2" />
+                                <path d="M60,140 L60,160 L140,160 L140,140" stroke="#ffff00" stroke-width="1" fill="none" />
+                                <path d="M70,160 L70,180" stroke="#ffff00" stroke-width="1" fill="none" />
+                                <path d="M130,160 L130,180" stroke="#ffff00" stroke-width="1" fill="none" />
+                                <circle cx="100" cy="40" r="10" fill="none" stroke="#ffff00" stroke-width="1" />
+                                <path d="M95,40 L105,40" stroke="#ffff00" stroke-width="1" />
+                                <path d="M100,35 L100,45" stroke="#ffff00" stroke-width="1" />
+                            </svg>
+                        </div>
+                        <div class="member-social flex flex-col space-y-3">
+                            <a href="#" class="social-icon" style="border: 1px solid #ffff00; box-shadow: 0 0 10px #ffff00;">
+                                <i class="fab fa-linkedin-in" style="color: #ffff00;"></i>
+                            </a>
+                            <a href="#" class="social-icon" style="border: 1px solid #ffff00; box-shadow: 0 0 10px #ffff00;">
+                                <i class="fab fa-github" style="color: #ffff00;"></i>
+                            </a>
+                            <a href="#" class="social-icon" style="border: 1px solid #ffff00; box-shadow: 0 0 10px #ffff00;">
+                                <i class="fas fa-envelope" style="color: #ffff00;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6 relative">
+                        <div class="hexagon-bg">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="none" stroke="#ffff00" stroke-width="1" />
+                                <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="#ffff00" stroke-width="1" />
+                                <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="none" stroke="#ffff00" stroke-width="1" />
+                            </svg>
+                        </div>
+                        <span class="member-role role-research mb-2">Research Lead</span>
+                        <h3 class="text-lg md:text-xl font-bold mt-3 mb-1" style="color: #ffff00; text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00;">Dr. Emily Zhang</h3>
+                        <p class="text-gray-300 mb-4 text-sm md:text-base">Postdoctoral researcher in AI Ethics and Responsible AI Development. Focuses on creating fair and transparent AI systems.</p>
+                        <div class="flex flex-wrap">
+                            <span class="member-specialty">AI Ethics</span>
+                            <span class="member-specialty">Fairness</span>
+                            <span class="member-specialty">Explainable AI</span>
+                        </div>
+                        <div class="member-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #ffff00; text-shadow: 0 0 5px #ffff00;">14</span>
+                                <span class="stat-label">Papers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #ffff00; text-shadow: 0 0 5px #ffff00;">7</span>
+                                <span class="stat-label">Grants</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" style="color: #ffff00; text-shadow: 0 0 5px #ffff00;">5</span>
+                                <span class="stat-label">Years</span>
+                            </div>
+                        </div>
+                        <div class="member-hover-effect" style="background: linear-gradient(90deg, #ffff00, #ffff66, #ffff00);"></div>
+                    </div>
+                </div>

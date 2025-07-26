@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Symposium 2025 - Details | AISA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #0a0a0f;
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .neon-text-cyan {
+      color: #00f0ff;
+      text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    }
+
+    .neon-border-cyan {
+      border: 1px solid #00f0ff;
+      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+
+    .cyber-panel {
+      background: rgba(15, 15, 25, 0.7);
+      backdrop-filter: blur(5px);
+      border: 1px solid #00f0ff;
+      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+
+    .btn-cyber {
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-cyber:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-cyber::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      animation: btn-shine 3s infinite;
+    }
+
+    @keyframes btn-shine {
+      0% { left: -50%; }
+      100% { left: 150%; }
+    }
+
+    .highlight {
+      color: #ff00ff;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div class="cyber-panel max-w-3xl w-full p-8 rounded-lg">
+    <h1 class="text-4xl font-bold neon-text-cyan mb-6 text-center">Tech Symposium 2025</h1>
+    
+    <div class="text-sm text-gray-300 mb-6 text-center">Organized by <span class="highlight">AISA</span></div>
+
+    <div class="space-y-6 text-base leading-relaxed">
+      <p><strong class="neon-text-cyan">📅 Date:</strong> August 2, 2025</p>
+      <p><strong class="neon-text-cyan">📍 Location:</strong> High Performance Computing Lab</p>
+      <p>
+        A premier gathering of AI enthusiasts, researchers, and professionals. This event will feature hands-on workshops, keynote presentations from industry leaders, and a student project showcase.
+      </p>
+
+      <!-- <ul class="list-disc ml-5 space-y-2">
+        <li><strong class="text-cyan-400">Keynote Talks</strong> by AI Industry Leaders</li>
+        <li><strong class="text-cyan-400">Workshops</strong> on ML, Neural Networks & Robotics</li>
+        <li><strong class="text-cyan-400">AI Project Showcase</strong> by students</li>
+        <li><strong class="text-cyan-400">Networking Zones</strong> to connect with recruiters</li>
+      </ul> -->
+
+      <!-- <p>
+        Don’t miss this opportunity to connect, learn, and showcase your talent in one of the biggest AI gatherings of the year.
+      </p> -->
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+      <!-- Register Button -->
+      <a href="#" class="btn-cyber neon-border-cyan px-6 py-3 rounded-md font-semibold text-cyan-400 text-lg inline-block">
+        🚀 Register Now
+      </a>
+
+      <!-- Back to Home Button -->
+      <a href="index6.html" class="btn-cyber neon-border-cyan px-4 py-2 rounded font-medium text-sm text-cyan-300 inline-block">
+        ← Back to Home
+      </a>
+    </div>
+  </div>
+</body>
+</html>

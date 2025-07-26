@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AISA - Artificial Intelligence & Student Association</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-pink: #ff00ff;
+            --neon-purple: #bf00ff;
+            --dark-bg: #0a0a0f;
+            --darker-bg: #050508;
+            --panel-bg: rgba(15, 15, 25, 0.7);
+            --glow-cyan: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+            --glow-pink: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+            --glow-purple: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .cyberpunk-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+        }
+        
+        .neon-text-cyan {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
+        }
+        
+        .neon-text-pink {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink);
+        }
+        
+        .neon-text-purple {
+            color: var(--neon-purple);
+            text-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
+        }
+        
+        .neon-border-cyan {
+            border: 1px solid var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+        
+        .neon-border-pink {
+            border: 1px solid var(--neon-pink);
+            box-shadow: var(--glow-pink);
+        }
+        
+        .neon-border-purple {
+            border: 1px solid var(--neon-purple);
+            box-shadow: var(--glow-purple);
+        }
+        
+        .cyber-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+            backdrop-filter: blur(5px);
+        }
+        
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 var(--neon-pink);
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: 1px 0 var(--neon-cyan);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { transform: translateX(0); }
+            80% { transform: translateX(0); }
+            85% { transform: translateX(2px); }
+            90% { transform: translateX(-2px); }
+            95% { transform: translateX(2px); }
+            100% { transform: translateX(0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { transform: translateX(0); }
+            80% { transform: translateX(0); }
+            85% { transform: translateX(-2px); }
+            90% { transform: translateX(2px); }
+            95% { transform: translateX(-2px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .btn-cyber {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .btn-cyber:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-cyber::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: btn-shine 3s infinite;
+        }
+        
+        @keyframes btn-shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+        
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 240, 255, 0) 0%, rgba(0, 240, 255, 0.03) 50%, rgba(0, 240, 255, 0) 100%);
+            pointer-events: none;
+            animation: scanline 6s linear infinite;
+            z-index: 999;
+        }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        .circuit-animation {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%2300f0ff' stroke-width='1' d='M10,10 L30,10 L30,30 L50,30 L50,50 L70,50 L70,70 L90,70 M10,90 L30,90 L30,70 L10,70 M50,90 L50,70 L70,90 M90,30 L70,30 L70,10 L90,10'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='30' cy='30' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='70' cy='70' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='90' cy='70' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='10' cy='90' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='30' cy='70' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='50' cy='90' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='70' cy='90' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='90' cy='30' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='70' cy='10' r='3' fill='%2300f0ff'/%3E%3Ccircle cx='90' cy='10' r='3' fill='%2300f0ff'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+            animation: circuit-move 20s linear infinite;
+        }
+        
+        @keyframes circuit-move {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 1000px; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .rotating {
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            background: var(--panel-bg);
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+        
+        .feature-icon {
+            background-color: rgba(0, 240, 255, 0.1);
+            color: var(--neon-cyan);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover .feature-icon {
+            background-color: var(--neon-cyan);
+            color: var(--dark-bg);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        .countdown-item {
+            background: var(--panel-bg);
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .event-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+        
+        .hologram-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .hologram {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .hologram-ring {
+            position: absolute;
+            border: 2px solid rgba(0, 240, 255, 0.5);
+            border-radius: 50%;
+            animation: expand 3s infinite;
+        }
+        
+        @keyframes expand {
+            0% { width: 30%; height: 30%; top: 35%; left: 35%; opacity: 0.8; }
+            100% { width: 100%; height: 100%; top: 0; left: 0; opacity: 0; }
+        }
+        
+        /* New Background Styles */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1033 100%);
+            overflow: hidden;
+        }
+        
+        .cyber-grid {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(to right, rgba(191, 0, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(191, 0, 255, 0.07) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg);
+            animation: grid-move 15s linear infinite;
+        }
+        
+        @keyframes grid-move {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+        
+        .cyber-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 0.5;
+        }
+        
+        .cyber-line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            animation: line-move 6s linear infinite;
+        }
+        
+        @keyframes line-move {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        
+        .cyber-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .cyber-particle {
+            position: absolute;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            opacity: 0.6;
+            box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+            animation: particle-float linear infinite;
+        }
+        
+        @keyframes particle-float {
+            0% { transform: translateY(100vh); opacity: 0.6; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+        
+        .cyber-hexagons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .cyber-hexagon {
+            position: absolute;
+            width: 100px;
+            height: 110px;
+            background: transparent;
+            border: 1px solid var(--neon-purple);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: hexagon-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes hexagon-pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+        
+        .cyber-vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 20, 0.6) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .cyber-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: glow-pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes glow-pulse {
+            0% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.15; }
+        }
+        
+        .section-divider {
+            position: relative;
+            height: 100px;
+            overflow: hidden;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, transparent 49.5%, var(--neon-cyan) 49.5%, var(--neon-cyan) 50.5%, transparent 50.5%);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+        
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Team Member Styles */
+        .team-member {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .member-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+        
+        .member-image img {
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.05);
+        }
+        
+        .member-info {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .member-social {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+        
+        .team-member:hover .member-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        
+        .member-role {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .role-president {
+            background-color: rgba(0, 240, 255, 0.2);
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+        }
+        
+        .role-vp {
+            background-color: rgba(255, 0, 255, 0.2);
+            color: var(--neon-pink);
+            border: 1px solid var(--neon-pink);
+        }
+        
+        .role-tech {
+            background-color: rgba(191, 0, 255, 0.2);
+            color: var(--neon-purple);
+            border: 1px solid var(--neon-purple);
+        }
+        
+        .role-events {
+            background-color: rgba(0, 255, 128, 0.2);
+            color: #00ff80;
+            border: 1px solid #00ff80;
+        }
+        
+        .role-pr {
+            background-color: rgba(255, 128, 0, 0.2);
+            color: #ff8000;
+            border: 1px solid #ff8000;
+        }
+        
+        .role-research {
+            background-color: rgba(255, 255, 0, 0.2);
+            color: #ffff00;
+            border: 1px solid #ffff00;
+        }
+        
+        .member-specialty {
+            position: relative;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hexagon-bg {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            opacity: 0.2;
+            z-index: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .team-member:hover .hexagon-bg {
+            transform: rotate(30deg) scale(1.2);
+            opacity: 0.3;
+        }
+        
+        .member-hover-effect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple));
+            transition: height 0.3s ease;
+        }
+        
+        .team-member:hover .member-hover-effect {
+            height: 10px;
+        }
+        
+        .team-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: rgba(0, 240, 255, 0.2);
+            color: var(--neon-cyan);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Responsive: 2+ members per row */
+            gap: 20px;
+        }
+
+
+        
+        .member-avatar {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            overflow: hidden;
+        }
+        
+        .member-avatar svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+        
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hologram-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .section-divider {
+                height: 60px;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 16px;
+            }
+            
+            .member-social {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .social-icon {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 10px;
+            }
+            
+            .cyber-hexagon {
+                width: 60px;
+                height: 66px;
+            }
+            
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .team-filters {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .filter-btn {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+            
+            .member-specialty {
+                font-size: 0.65rem;
+                padding: 1px 6px;
+            }
+            
+            .stat-value {
+                font-size: 1rem;
+            }
+            
+            .stat-label {
+                font-size: 0.6rem;
+            }
+        }
+        
+        /* Improved Mobile Navigation */
+        #mobileMenu {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        /* Responsive Event Card */
+        @media (max-width: 768px) {
+            .event-card .md\:flex {
+                flex-direction: column;
+            }
+            
+            .event-card .md\:w-2\/5,
+            .event-card .md\:w-3\/5 {
+                width: 100%;
+            }
+            
+            .event-card .absolute.inset-0.flex {
+                position: relative;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- New Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-grid"></div>
+        
+        <div class="cyber-lines">
+            <div class="cyber-line" style="top: 15%; animation-delay: 0s;"></div>
+            <div class="cyber-line" style="top: 35%; animation-delay: 2s;"></div>
+            <div class="cyber-line" style="top: 55%; animation-delay: 4s;"></div>
+            <div class="cyber-line" style="top: 75%; animation-delay: 6s;"></div>
+        </div>
+        
+        <div class="cyber-particles" id="cyberParticles"></div>
+        
+        <div class="cyber-hexagons">
+            <div class="cyber-hexagon" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+            <div class="cyber-hexagon" style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+            <div class="cyber-hexagon" style="top: 60%; left: 30%; animation-delay: 2s;"></div>
+            <div class="cyber-hexagon" style="top: 80%; left: 80%; animation-delay: 1.5s;"></div>
+            <div class="cyber-hexagon" style="top: 40%; left: 10%; animation-delay: 0.5s;"></div>
+            <div class="cyber-hexagon" style="top: 70%; left: 60%; animation-delay: 2.5s;"></div>
+        </div>
+        
+        <div class="cyber-glow" style="top: 20%; left: 30%; background-color: var(--neon-cyan);"></div>
+        <div class="cyber-glow" style="top: 60%; left: 70%; background-color: var(--neon-pink);"></div>
+        <div class="cyber-glow" style="top: 80%; left: 20%; background-color: var(--neon-purple);"></div>
+    </div>
+    
+    <div class="cyber-vignette"></div>
+    <div class="noise-overlay"></div>
+    <div class="scanline"></div>
+    
+    <!-- Navigation -->
+    <nav class="cyber-panel sticky top-0 z-50 px-4 py-3">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+            <div class="flex items-center">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold neon-text-cyan tracking-wider">AISA</h1>
+                    <p class="text-xs md:text-sm opacity-80">Artificial Intelligence & Student Association</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center">
+        <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
+                    <span class="glitch neon-text-pink" data-text="ARTIFICIAL">ARTIFICIAL</span>
+                    <span class="neon-text-cyan">INTELLIGENCE</span>
+                </h1>
+                <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6">&amp; STUDENT ASSOCIATION</h2>
+                <p class="text-base md:text-xl mb-8 max-w-lg">Pioneering the future through collaboration, innovation, and cutting-edge AI technology. Join us in shaping tomorrow's digital landscape.</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="section-divider"></div>
+    
+    <!-- Featured Event Section -->
+    <section class="py-8 md:py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Upcoming <span class="neon-text-cyan">Event</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Join us for our flagship event featuring keynote speakers, workshops, and networking opportunities.</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="event-card">
+                    <div class="md:flex">
+                        <div class="md:w-2/5 relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-900 to-blue-900 opacity-90"></div>
+                            <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-6 md:p-8">
+                                <h3 class="text-2xl md:text-3xl font-bold mb-4 neon-text-cyan">Tech Symposium 2025</h3>
+                                <div class="bg-cyan-900 neon-border-cyan mb-4 px-4 py-2 rounded-md">August 2, 2025</div>
+                                <p class="mb-6 text-center text-sm md:text-base">A premier gathering of AI enthusiasts, researchers, and industry professionals.</p>
+                                <a href="details.html" class="cyber-panel neon-border-cyan btn-cyber px-6 md:px-8 py-2 md:py-3 rounded-md font-semibold neon-text-cyan inline-flex items-center">
+                                    View Details
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+
+                                <!-- <div class="flex space-x-3 md:space-x-4 mb-6">
+                                    <div class="countdown-item">
+                                        <div class="text-xl md:text-2xl font-bold neon-text-cyan" id="days">00</div>
+                                        <div class="text-xs text-gray-400">Days</div>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <div class="text-xl md:text-2xl font-bold neon-text-cyan" id="hours">00</div>
+                                        <div class="text-xs text-gray-400">Hours</div>
+                                    </div>
+                                    <div class="countdown-item">
+                                        <div class="text-xl md:text-2xl font-bold neon-text-cyan" id="minutes">00</div>
+                                        <div class="text-xs text-gray-400">Minutes</div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- About Section -->
+    <section class="py-8 md:py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">About <span class="neon-text-cyan">AISA</span></h2>
+                    <p class="text-gray-300 mb-6">
+                        The Artificial Intelligence & Student Association (AISA) is a student-led organization dedicated to promoting AI education, research, and innovation. We bring together students from diverse backgrounds who share a passion for artificial intelligence and its applications.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        Our mission is to create a collaborative environment where students can learn, experiment, and grow their AI skills through workshops, projects, competitions, and networking events.
+                    </p>                    
+                </div>        
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Team Members Section -->
+    <section class="py-8 md:py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Our <span class="neon-text-cyan">Team</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Meet the dedicated students who lead AISA and drive our mission forward.</p>
+            </div>
+            
+            <div class="team-filters mb-8 md:mb-12 overflow-x-auto pb-2">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="executive">Core</button>
+                <button class="filter-btn" data-filter="technical">Technical Team</button>
+                <button class="filter-btn" data-filter="events">Planning Team</button>
+                <button class="filter-btn" data-filter="research">Social Media Team</button>
+            </div>
+            
+            <div class="team-grid grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <!-- Team Member 1 - President -->
+                <div class="team-member cyber-panel" data-category="executive">
+                    <div class="member-image">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="avatarGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0a192f" />
+                                        <stop offset="100%" stop-color="#112240" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="200" height="200" fill="url(#avatarGradient1)" />
+                                <circle cx="100" cy="70" r="40" fill="none" stroke="#00f0ff" stroke-width="2" />
+                                <path d="M60,140 C60,100 140,100 140,140" fill="none" stroke="#00f0ff" stroke-width="2" />
+                                <circle cx="85" cy="65" r="5" fill="#00f0ff" />
+                                <circle cx="115" cy="65" r="5" fill="#00f0ff" />
+                                <path d="M85,85 C85,95 115,95 115,85" fill="none" stroke="#00f0ff" stroke-width="2" />
+                                <path d="M70,50 L80,60" stroke="#00f0ff" stroke-width="2" />
+                                <path d="M130,50 L120,60" stroke="#00f0ff" stroke-width="2" />
+                                <path d="M60,140 L60,160 L140,160 L140,140" stroke="#00f0ff" stroke-width="1" fill="none" />
+                                <path d="M70,160 L70,180" stroke="#00f0ff" stroke-width="1" fill="none" />
+                                <path d="M130,160 L130,180" stroke="#00f0ff" stroke-width="1" fill="none" />
+                                <circle cx="100" cy="30" r="10" fill="none" stroke="#00f0ff" stroke-width="1" />
+                                <path d="M95,30 L105,30" stroke="#00f0ff" stroke-width="1" />
+                                <path d="M100,25 L100,35" stroke="#00f0ff" stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6 relative">
+                        <span class="member-role role-president mb-2">President</span>
+                        <h3 class="text-lg md:text-xl font-bold mt-3 mb-1 neon-text-cyan">Alex Chen</h3>
+                        <div class="member-hover-effect"></div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 - Vice President -->
+                <!-- <div class="team-member cyber-panel" data-category="executive">
+                    <div class="member-image">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="avatarGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#1a0033" />
+                                        <stop offset="100%" stop-color="#330066" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="200" height="200" fill="url(#avatarGradient2)" />
+                                <circle cx="100" cy="70" r="40" fill="none" stroke="#ff00ff" stroke-width="2" />
+                                <path d="M60,140 C60,100 140,100 140,140" fill="none" stroke="#ff00ff" stroke-width="2" />
+                                <circle cx="85" cy="65" r="5" fill="#ff00ff" />
+                                <circle cx="115" cy="65" r="5" fill="#ff00ff" />
+                                <path d="M85,85 C85,90 115,90 115,85" fill="none" stroke="#ff00ff" stroke-width="2" />
+                                <path d="M70,45 L80,55" stroke="#ff00ff" stroke-width="2" />
+                                <path d="M130,45 L120,55" stroke="#ff00ff" stroke-width="2" />
+                                <path d="M60,140 L60,160 L140,160 L140,140" stroke="#ff00ff" stroke-width="1" fill="none" />
+                                <path d="M70,160 L70,180" stroke="#ff00ff" stroke-width="1" fill="none" />
+                                <path d="M130,160 L130,180" stroke="#ff00ff" stroke-width="1" fill="none" />
+                                <path d="M90,40 C90,30 110,30 110,40" stroke="#ff00ff" stroke-width="1" fill="none" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6 relative">
+                        <div class="hexagon-bg">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="none" stroke="#ff00ff" stroke-width="1" />
+                                <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="#ff00ff" stroke-width="1" />
+                                <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="none" stroke="#ff00ff" stroke-width="1" />
+                            </svg>
+                        </div>
+                        <span class="member-role role-vp mb-2">Vice President</span>
+                        <h3 class="text-lg md:text-xl font-bold mt-3 mb-1 neon-text-pink">Sophia Rodriguez</h3>
+                        <div class="member-hover-effect"></div>
+                    </div>
+                </div>-->
+                
+                <!-- Team Member 3 - Technical Lead -->
+                <!--<div class="team-member cyber-panel" data-category="technical">
+                    <div class="member-image">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="avatarGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#1a0033" />
+                                        <stop offset="100%" stop-color="#2a0052" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="200" height="200" fill="url(#avatarGradient3)" />
+                                <circle cx="100" cy="70" r="40" fill="none" stroke="#bf00ff" stroke-width="2" />
+                                <path d="M60,140 C60,100 140,100 140,140" fill="none" stroke="#bf00ff" stroke-width="2" />
+                                <circle cx="85" cy="65" r="5" fill="#bf00ff" />
+                                <circle cx="115" cy="65" r="5" fill="#bf00ff" />
+                                <path d="M85,85 C85,90 115,90 115,85" fill="none" stroke="#bf00ff" stroke-width="2" />
+                                <rect x="75" y="40" width="50" height="15" rx="5" stroke="#bf00ff" stroke-width="1" fill="none" />
+                                <path d="M60,140 L60,160 L140,160 L140,140" stroke="#bf00ff" stroke-width="1" fill="none" />
+                                <path d="M70,160 L70,180" stroke="#bf00ff" stroke-width="1" fill="none" />
+                                <path d="M130,160 L130,180" stroke="#bf00ff" stroke-width="1" fill="none" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6 relative">
+                        <div class="hexagon-bg">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="none" stroke="#bf00ff" stroke-width="1" />
+                                <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="#bf00ff" stroke-width="1" />
+                                <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" fill="none" stroke="#bf00ff" stroke-width="1" />
+                            </svg>
+                        </div>
+                        <span class="member-role role-tech mb-2">Technical Lead</span>
+                        <h3 class="text-lg md:text-xl font-bold mt-3 mb-1 neon-text-purple">Marcus Johnson</h3>
+                        <div class="member-hover-effect"></div>
+                    </div>
+                </div>-->
+                 
+                
+            </div>
+            
+            <div class="text-center mt-10 md:mt-12">
+                <button class="cyber-panel neon-border-cyan btn-cyber px-6 py-3 md:px-8 md:py-4 rounded-md text-base md:text-lg font-semibold neon-text-cyan">VIEW ALL MEMBERS</button>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-10 md:py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div style="height: 10px;text-align: center;">
+                    <div class="flex space-x-4">
+                        <p class="text-xs text-gray-400" >Follow us at : </p>
+                        <a href="#" class="w-8 h-8 rounded-full neon-border-cyan flex items-center justify-center hover:bg-cyan-900 transition-all duration-300">
+                            <i class="fab fa-instagram text-cyan-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <p style="text-align: center;">Powered by <span class="highlight">AISA</span> © 2025.<br> All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96559e3be4e4d4bc',t:'MTc1MzU1MDk1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+
+</html>
